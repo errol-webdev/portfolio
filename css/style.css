@@ -1293,6 +1293,14 @@ body {
   padding-right: 1rem;
   padding-left: 1rem;
 }
+
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  .intro {
+    margin-bottom: 40px;
+  }
+}
+
 @media (min-width: 540px) {
   .a {
     max-width: 540px;
