@@ -9,6 +9,10 @@
   margin-top: 50px !important;
 }
 
+.services-min-height {
+  min-height: 450px !important;
+}
+
 .mt-testimonial {
   margin-top: 1rem;
 }
@@ -2050,7 +2054,7 @@ input[type="checkbox"]:checked ~ label span svg {
   padding-bottom: 1rem;
 }
 .ag {
-  padding-top: 100px;
+  padding-top: 20px;
 }
 .bg {
   padding-bottom: 3rem;
