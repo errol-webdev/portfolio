@@ -7,6 +7,11 @@
     <title>John Errol Principe - Portfolio Website</title>
     <link rel="icon" href="favicon.ico" />
     <link href="css/style.css" rel="stylesheet" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
   </head>
   <body>
     <header class="header me d f g y bc mb id ai">
@@ -2587,6 +2592,7 @@
                       type="text"
                       placeholder="Company (Optional)"
                       class="input-field"
+                      id="subject"
                     />
                   </div>
                 </div>
@@ -2605,7 +2611,7 @@
                     <input
                       type="text"
                       placeholder="Phone number"
-                      id="contact"
+                      id="contactnum"
                       class="input-field"
                     />
                   </div>
@@ -3079,24 +3085,28 @@
       function sendEmail() {
         let name = document.getElementById("name").value;
         let email = document.getElementById("email").value;
-        let contact = document.getElementById("contact").value;
+        let contact = document.getElementById("contactnum").value;
         let subject = document.getElementById("subject").value;
         let message = document.getElementById("message").value;
         let body;
 
         body = "Name : " + name + "<br/>";
-        body += "email : " + email + "<br/>";
-        body += "contact : " + contact + "<br/>";
-        body += "subject : " + subject + "<br/>";
-        body += "message : " + message + "<br/>";
+        body += "Email : " + email + "<br/>";
+        body += "Contact : " + contact + "<br/>";
+        body += "Company : " + subject + "<br/>";
+        body += "Message : " + message + "<br/>";
 
         Email.send({
           SecureToken: "960ba238-0479-4b68-b2d2-38be17cd893d",
           To: "errol.principe.tech@gmail.com",
           From: "errol.emailservice@gmail.com",
-          Subject: "This is the subject",
+          Subject: "Potencial Client From Errol's Portfolio !!!",
           Body: body,
-        }).then((message) => alert("Email successfully sent! Thank you!"));
+        }).then((message) =>
+          alert(
+            "The email has been sent successfully! We'll respond to you at our earliest convenience!"
+          )
+        );
       }
     </script>
   </body>
