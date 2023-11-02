@@ -2576,6 +2576,7 @@
                     <input
                       type="text"
                       placeholder="Enter your name"
+                      id="name"
                       class="input-field"
                     />
                   </div>
@@ -2593,6 +2594,7 @@
                   <div class="eb">
                     <input
                       type="email"
+                      id="email"
                       placeholder="Enter your email"
                       class="input-field"
                     />
@@ -2603,6 +2605,7 @@
                     <input
                       type="text"
                       placeholder="Phone number"
+                      id="contact"
                       class="input-field"
                     />
                   </div>
@@ -2612,6 +2615,7 @@
                     <textarea
                       rows="4"
                       placeholder="Tell me about your project"
+                      id="message"
                       class="input-field ed"
                     ></textarea>
                   </div>
@@ -2620,6 +2624,7 @@
                   <div class="pg sg">
                     <button
                       class="nb kd id sf tf td fh kh pe fa ai ci ei yi si"
+                      onclick="sendEmail()"
                     >
                       Send Message
                     </button>
@@ -3062,17 +3067,6 @@
         }
       })();
     </script>
-    <iframe
-      height="1"
-      width="1"
-      style="
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        border: none;
-        visibility: hidden;
-      "
-    ></iframe>
     <script
       defer=""
       src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
@@ -3080,5 +3074,30 @@
       =""
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      function sendEmail() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let contact = document.getElementById("contact").value;
+        let subject = document.getElementById("subject").value;
+        let message = document.getElementById("message").value;
+        let body;
+
+        body = "Name : " + name + "<br/>";
+        body += "email : " + email + "<br/>";
+        body += "contact : " + contact + "<br/>";
+        body += "subject : " + subject + "<br/>";
+        body += "message : " + message + "<br/>";
+
+        Email.send({
+          SecureToken: "960ba238-0479-4b68-b2d2-38be17cd893d",
+          To: "errol.principe.tech@gmail.com",
+          From: "errol.emailservice@gmail.com",
+          Subject: "This is the subject",
+          Body: body,
+        }).then((message) => alert("Email successfully sent! Thank you!"));
+      }
+    </script>
   </body>
 </html>
